@@ -1,0 +1,15 @@
+development:
+  adapter: postgresql
+  encoding: utf8
+  database: sahdf_development
+  pool: 5
+  username: sahdf
+  password: sahdpass
+
+test: &TEST
+  adapter: postgresql
+  encoding: utf8
+  database: sahdf_test
+  pool: 5
+  username: sahdf
+  password: sahdpass
