@@ -1,36 +1,78 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h2>Edit Your Profile</h2>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= devise_error_messages! %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+    <div class="well bs-component">
+      <div class="form-horizontal">
+        <fieldset>
+          <div class="form-group">
+            <%= f.label :name, class: "col-md-4 control-label" %>
+            <div class="col-md-8">
+              <%= f.text_field :name, autofocus: true, class: "form-control" %>
+            </div>
+          </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+          <div class="form-group">
+            <%= f.label :email, class: "col-md-4 control-label" %>
+            <div class="col-md-8">
+              <%= f.email_field :email, class: "form-control" %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :image, "Profile Image", class: "col-md-4 control-label" %>
+            <div class="col-md-8">
+              <% if current_user.image.url.present? %>
+                <%= image_tag(current_user.image.url) %>
+                  Remove image?
+                  <%= f.label :remove_image do %>
+                    <%= f.check_box :remove_image %>
+                  <% end %>
+              <% end %>
+              <%= f.file_field :image %>
+              <%= f.hidden_field :image_cache %>
+            </div>
+          </div>
+
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+          <% end %>
+
+          <div class="form-group">
+            <div class="col-md-8 col-md-offset-4">
+              <p class="cpw">Change password?</p>
+            </div>
+          </div>
+
+          <div class="edit-password">
+            <div class="form-group">
+              <%= f.label :password, "Password", class: "col-md-4 control-label" %>
+              <div class="col-md-8">
+                <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :password_confirmation, "Confirm", class: "col-md-4 control-label" %>
+              <div class="col-md-8">
+                <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-md-8 col-md-offset-4">
+              <%= f.submit "Update Profile", class: "btn btn-primary" %>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+    <% end %>
   </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
+</div>
 
 <h3>Cancel my account</h3>
 
