@@ -28,7 +28,6 @@ gem 'mini_magick'
 
 # Test Suite
 group :test do 
-	gem 'selenium-webdriver'
 	gem 'capybara'
 	gem 'launchy'
 	gem 'factory_girl_rails'

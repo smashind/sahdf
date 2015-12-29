@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
 	validates_presence_of [:name, :email]
 
+  has_many :posts
+
 	mount_uploader :image, ImageUploader
 
 	def self.from_omniauth(auth)

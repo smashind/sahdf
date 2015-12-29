@@ -1,0 +1,22 @@
+<%= form_for @post, remote: true do |f| %>
+  <div class="form-horizontal">
+    <fieldset>
+      <div class="form-group">
+        <div class="col-sm-12">
+        <%= f.text_area :body, class: "form-control", placeholder: "Your sad, funny story.", rows: "4" %>
+        <span class="help-block"></span>
+        </div>
+      </div>
+
+      <% unless user_signed_in? %>
+        <%= f.hidden_field :user_id, value: 10 %>
+      <% end %>
+
+      <div class="form-group">
+        <div class="col-sm-12">
+          <%= f.submit "Post it", class: "btn btn-primary", data: { disable_with: "Posting..." }, id: 'submit-post-button' %>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+<% end %>
