@@ -3,6 +3,10 @@ FactoryGirl.define do
 		sequence(:name) { |n| "User#{n}" }
 		sequence(:email) { |n| "user#{n}@example.com" }
 		password "password"
+
+		trait :anonymous do
+			name "Anonymous"
+		end
 	end
 
 	factory :post do

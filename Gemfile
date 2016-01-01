@@ -30,14 +30,15 @@ gem 'mini_magick'
 group :test do 
 	gem 'capybara'
 	gem 'launchy'
-	gem 'factory_girl_rails'
 	gem 'database_cleaner', github: 'bmabey/database_cleaner'
+	gem 'poltergeist'
 end
 
 # Development testing
 group :development, :test do 
   gem 'rspec-rails', '~> 3.1'
   gem 'bullet'
+  gem 'factory_girl_rails'
 end
 
 # For heroku (ensures that asset pipeline is correctly used)
