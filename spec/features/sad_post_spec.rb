@@ -10,6 +10,7 @@ describe 'Posting a sadf' do
 		  visit root_path
 		  click_link 'Post a sad funny'
 		  find("#post-form").click_button('Post it')
+		  expect(page).to have_css('.has-error')
 		  expect(page).to have_content "Body can't be blank. Body is too short (minimum is 2 characters)."
 		end
 
@@ -24,7 +25,7 @@ describe 'Posting a sadf' do
 		  click_link 'Post a sad funny'
 		  find("#post-form").fill_in('post_body', with: 'Today I had a very busy day')
 		  click_button 'Post it'
-		  expect(page).to have_css(".post-body", text: "Today I had a very busy day")
+		  expect(page).to_not have_css('.has-error')
 		end
 	end
 
@@ -38,7 +39,7 @@ describe 'Posting a sadf' do
 		  click_link 'Post a sad funny'
 		  find("#post-form").fill_in('post_body', with: 'Today I had a very busy day')
 		  click_button 'Post it'
-		  expect(page).to have_css(".post-body", text: "Today I had a very busy day")
+		  expect(page).to_not have_css('.has-error')
 		end
 	end
 

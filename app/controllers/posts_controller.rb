@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 	def index
-		@posts = Post.all
+		@posts = Post.featured.paginate(page: params[:page], per_page: 10)
 		@post = Post.new
 	end
 
@@ -21,7 +21,7 @@ class PostsController < ApplicationController
 
     if @post.save
 	    respond_to do |format|
-	    	format.html { redirect to @post, notice: "Your sad funny story was posted!" }
+	    	format.html { redirect_to :root, notice: "Your sad funny story was posted!" }
 	    	format.js
 	    end
 	  else

@@ -26,6 +26,9 @@ gem 'will_paginate-bootstrap'
 gem 'carrierwave'
 gem 'mini_magick'
 
+# Sweet Alert
+gem 'sweetalert-rails'
+
 # Test Suite
 group :test do 
 	gem 'capybara'
