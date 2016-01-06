@@ -18,6 +18,9 @@ gem 'bootswatch-rails'
 gem 'devise'
 gem 'omniauth-facebook'
 
+# Authorization
+gem 'cancancan'
+
 # Pagination
 gem 'will_paginate', '~> 3.0.5'
 gem 'will_paginate-bootstrap'
