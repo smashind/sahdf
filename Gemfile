@@ -32,6 +32,9 @@ gem 'mini_magick'
 # Sweet Alert
 gem 'sweetalert-rails'
 
+# Admin area
+gem "administrate", "~> 0.1.2"
+
 # Test Suite
 group :test do 
 	gem 'capybara'

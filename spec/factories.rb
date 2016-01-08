@@ -10,6 +10,10 @@ FactoryGirl.define do  factory :role do
 		trait :anonymous do
 			name "Anonymous"
 		end
+
+		trait :admin do
+			role "admin"
+		end
 	end
 
 	factory :post do
