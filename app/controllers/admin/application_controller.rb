@@ -17,12 +17,12 @@ module Admin
 
     private
 
-		  def handle_access_denied
-		  	if user_signed_in?
-		      redirect_to :root, notice: "Access was denied."
-		    else
-		    	redirect_to new_user_session_path, notice: "Authorization required."
-		    end
-		  end
+	  def handle_access_denied
+	  	if user_signed_in?
+	      redirect_to :root, notice: "Access was denied."
+	    else
+	    	redirect_to new_user_session_path, notice: "Authorization required."
+	    end
+	  end
   end
 end
