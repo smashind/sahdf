@@ -6,7 +6,7 @@
 # you're free to overwrite the RESTful controller actions.
 module Admin
   class ApplicationController < Administrate::ApplicationController
-    load_and_authorize_resource :class => :admin
+    load_and_authorize_resource
     rescue_from CanCan::AccessDenied, with: :handle_access_denied
 
     # Override this value to specify the number of elements to display at a time
