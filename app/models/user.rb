@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
 	validates_presence_of [:name, :email]
 
   has_many :posts
+  has_many :favorites
+  has_many :favorite_posts, through: :favorites, source: :favorited, source_type: 'Post'
 
 	mount_uploader :image, ImageUploader
 

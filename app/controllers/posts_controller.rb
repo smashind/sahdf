@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 	def index
-		@posts = Post.featured.paginate(page: params[:page], per_page: 10)
+		@posts = Post.featured.includes(:user).order('id DESC').paginate(page: params[:page], per_page: 10)
 		@post = Post.new
 	end
 

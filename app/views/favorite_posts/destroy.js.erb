@@ -1,0 +1,4 @@
+$("#post-<%= params[:id] %>").find("i").removeClass("unfavorite").addClass("favorite");
+sweetAlert("Unfavorited!", "", "error");
+$("#post-<%= params[:id] %>").find("a.favorite-button")
+.html('<a href="/favorite_posts?post_id=<%= params[:id] %>" data-method="post" data-remote="true"><i class="fa fa-star favorite"></i></a>');

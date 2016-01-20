@@ -46,8 +46,11 @@ end
 # Development testing
 group :development, :test do 
   gem 'rspec-rails', '~> 3.1'
-  gem 'bullet'
   gem 'factory_girl_rails'
+end
+
+group :development do
+  gem 'bullet'
 end
 
 # For heroku (ensures that asset pipeline is correctly used)

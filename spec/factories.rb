@@ -1,7 +1,4 @@
-FactoryGirl.define do  factory :role do
-    name "MyString"
-  end
-
+FactoryGirl.define do
 	factory :user do
 		sequence(:name) { |n| "User#{n}" }
 		sequence(:email) { |n| "user#{n}@example.com" }
@@ -23,5 +20,10 @@ FactoryGirl.define do  factory :role do
 	  trait :featured do
 	  	featured true
 	  end
+	end
+
+	factory :favorite do 
+		favorited factory: :post
+		association :user
 	end
 end

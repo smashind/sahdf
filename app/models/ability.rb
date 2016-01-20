@@ -7,10 +7,10 @@ class Ability
       can :manage, :all
     else
       # Allow users to manage their own profiles and posts only
-      can :manage, User do |u|
+      can :edit, User do |u|
         user.id == u.id
       end
-      can :manage, Post do |p|
+      can :edit, Post do |p|
         user.id == p.user_id
       end
       # To explicitly allow/deny non-RESTful actions,
