@@ -1,4 +1,13 @@
+PNotify.removeAll();
 $("#post-<%= params[:id] %>").find("i").removeClass("unfavorite").addClass("favorite");
-sweetAlert("Unfavorited!", "", "error");
+$(function(){
+	new PNotify({
+	    title: 'Unfavorited',
+	    text: 'Removed from your favorites.',
+	    type: 'info',
+	    delay: 3000,
+	    addclass: "alert-position"
+	});
+});
 $("#post-<%= params[:id] %>").find("a.favorite-button")
 .html('<a href="/favorite_posts?post_id=<%= params[:id] %>" data-method="post" data-remote="true"><i class="fa fa-star favorite"></i></a>');

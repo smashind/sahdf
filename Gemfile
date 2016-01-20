@@ -29,8 +29,10 @@ gem 'will_paginate-bootstrap'
 gem 'carrierwave'
 gem 'mini_magick'
 
-# Sweet Alert
-gem 'sweetalert-rails'
+# Make Turbolinks and jQuery play nice
+gem 'jquery-turbolinks'
+# PNotify
+gem 'pnotify-rails'
 
 # Admin area
 gem "administrate", "~> 0.1.2"

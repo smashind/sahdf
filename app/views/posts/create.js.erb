@@ -1,5 +1,13 @@
 $('#post_body').val("");
-sweetAlert("Nice!", "Your sad funny was saved.", "success");
+PNotify.removeAll();
+$(function(){
+	new PNotify({
+	    title: 'Your sad funny was saved!',
+	    text: 'You can view it in the new section. We\'ll let you know if it gets featured!',
+	    type: 'success'
+	    addclass: "alert-position"
+	});
+});
 $('#post-form').slideToggle();
 
 // Old method for adding posts, doesn't play well with pagination

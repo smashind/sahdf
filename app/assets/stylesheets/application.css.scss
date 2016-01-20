@@ -12,7 +12,7 @@
  *
  *= require_tree .
  *= require_self
- *= require sweet-alert
+ *= require pnotify
  */
 
 @import "bootstrap-sprockets";
@@ -39,4 +39,8 @@ footer {
   right: 0;
   width: 100%;
   height: 235px;
+}
+
+.alert-position {
+  top: 25px !important;
 }

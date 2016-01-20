@@ -11,8 +11,13 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
-//= require sweet-alert
+//= require pnotify/pnotify.core
 //= require_tree .
+
+$(document).on("page:load", function () {
+	$(".ui-pnotify").hide();
+});
