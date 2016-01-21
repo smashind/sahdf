@@ -13,9 +13,12 @@ Devise.setup do |config|
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
-  config.omniauth :facebook, Rails.application.secrets.FACEBOOK_APP_ID, Rails.application.secrets.FACEBOOK_APP_SECRET, scope: 'email', info_fields: 'email, name'
-  config.secret_key = '3a4fd8180a80fe07d3896ea9fcedb5d663ca458729d3e8d582d77624b16b6222e1b1e1f0268908975ff00764af762119e94b9bc4e8777efaa3fc66afca963e3f'
-  
+  if Rails.env.development?
+    config.omniauth :facebook, Rails.application.secrets.FACEBOOK_APP_ID, Rails.application.secrets.FACEBOOK_APP_SECRET, scope: 'email', info_fields: 'email, name'
+  elsif Rails.env.production?
+    config.omniauth :facebook, ENV["FACEBOOK_APP_ID"], ENV["FACEBOOK_APP_SECRET"], scope: 'email', info_fields: 'email, name'
+  end
+  config.secret_key = ENV["DEVISE_SECRET_KEY"]
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
 
