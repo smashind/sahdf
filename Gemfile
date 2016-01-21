@@ -36,6 +36,8 @@ gem 'pnotify-rails'
 
 # Admin area
 gem "administrate", "~> 0.1.2"
+# Sprockets rails for Administrate error on Heroku
+gem 'sprockets-rails', '2.3.3'
 
 # Test Suite
 group :test do 
