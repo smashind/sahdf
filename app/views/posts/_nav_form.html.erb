@@ -1,0 +1,29 @@
+<div class="modal-dialog">
+  <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body">
+        <%= form_for @post = Post.new, remote: true do |f| %>
+          <div class="form-horizontal">
+            <fieldset>
+              <div class="form-group">
+                <div class="col-sm-12">
+                <%= f.text_area :body, class: "form-control", placeholder: "Your sad, funny story.", rows: "4", id: "form_post_body" %>
+                <span class="help-block"></span>
+                </div>
+              </div>
+
+              <% unless user_signed_in? %>
+                <%= f.hidden_field :user_id, value: 1 %>
+              <% end %>
+
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <%= f.submit "Post it", class: "btn btn-primary", data: { disable_with: "Posting..." }, id: 'submit_post_button_form', name: 'submit_post_button_form' %>  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        <% end %>
+      </div>
+    </div>
+</div>

@@ -9,9 +9,9 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks", :registrations => 'registrations' }
   root 'posts#index'
-  get 'pages/home'
-  get 'pages/about'
-  get 'pages/contact'
+  get 'about', to: 'pages#about', as: :about
+  get 'contact', to: 'pages#contact', as: :contact
+  get 'new', to: 'pages#new', as: :new
   resources :users
   resources :posts
   resources :favorite_posts, only: [:create, :destroy]

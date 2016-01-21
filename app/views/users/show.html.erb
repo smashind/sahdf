@@ -18,14 +18,7 @@
 	<div class="col-sm-8">
 		<h4><%= @user.name %>'s Sahdfs</h4>
 		<% @posts.each do |post| %>
-			<div class="post">
-			  <div class="post-body"><%= post.body %></div>
-			  <div class="post-user">
-			  	<% if can? :manage, post %>
-					  <%= link_to "Edit", edit_post_path(post) %> | <%= link_to "Delete", post, method: :delete, data: { confirm: "Are you sure?" } %>
-					<% end %> 
-			  </div>
-			</div>
+			<%= render "posts/posts", post: post %>
 		<% end %>
 		<%= will_paginate @posts, param_name: 'posts_page', renderer: BootstrapPagination::Rails %>
 

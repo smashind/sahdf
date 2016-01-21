@@ -1,0 +1,4 @@
+<% @post.errors.each do |key, value| %>
+  $("#form_post_<%= key %>").closest('.form-group').addClass('has-error');
+  $("#form_post_<%= key %>").closest('.form-group').find('span').append('<%= key.capitalize %> <%= value %>. ');
+<% end %>

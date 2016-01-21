@@ -27,7 +27,11 @@ class PostsController < ApplicationController
 	  else
 	  	respond_to do |format|
 	    	format.html { render :new, alert: "There was a problem." }
-	    	format.js { render action: "error" }
+	    	if params[:submit_post_button_form]
+	    		format.js { render action: "form_error" }
+	    	else
+	    	  format.js { render action: "error" }
+	    	end
 	    end	
 	  end 
 	end

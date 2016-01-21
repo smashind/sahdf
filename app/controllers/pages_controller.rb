@@ -5,6 +5,10 @@ class PagesController < ApplicationController
   def home
   end
 
+  def new
+  	@posts = Post.includes(:user).order('id DESC').paginate(page: params[:page], per_page: 20)
+  end
+
   def about
   end
 

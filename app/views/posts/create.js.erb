@@ -1,14 +1,16 @@
 $('#post_body').val("");
+$('#form_post_body').val("");
 PNotify.removeAll();
 $(function(){
 	new PNotify({
 	    title: 'Your sad funny was saved!',
 	    text: 'You can view it in the new section. We\'ll let you know if it gets featured!',
-	    type: 'success'
+	    type: 'success',
 	    addclass: "alert-position"
 	});
 });
-$('#post-form').slideToggle();
+$('#navbar_post').modal('hide');
+$('#post-form').slideUp();
 
 // Old method for adding posts, doesn't play well with pagination
 // and would allow all the spam to get through to the front page

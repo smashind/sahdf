@@ -11,3 +11,7 @@ $(document).on "page:change", ->
 	$('#submit-post-button').click -> 
     $('span').text('')
     $('.form-group').removeClass('has-error')
+
+  $('#submit_post_button_form').click -> 
+    $('span').text('')
+    $('.form-group').removeClass('has-error')
