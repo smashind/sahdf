@@ -9,6 +9,8 @@
 
 			<% if !@user.image.blank? %>
 				<%= image_tag "#{@user.image}" %>
+			<% elsif @user.provider == "facebook" %>
+        <%= image_tag "#{@user.medium_image}" %>
 			<% else %>
 			  <%= image_tag "profile.png" %>
 			<% end %>

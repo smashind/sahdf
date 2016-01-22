@@ -12,11 +12,11 @@ class User < ActiveRecord::Base
 	mount_uploader :image, ImageUploader
 
 	def self.from_omniauth(auth)
-  	where(provider: auth.provider, uid: auth.id).first_or_create do |user|
+  	where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
   		user.email = auth.info.email
   		user.password = Devise.friendly_token[0,20]
   		user.name = auth.info.name
-      user.remote_image_url = auth.info.image.gsub('http://', 'https://')
+      # user.remote_image_url = auth.info.image.gsub('http://', 'https://')
   	end
   end
 
@@ -26,6 +26,14 @@ class User < ActiveRecord::Base
   			user.email = data["email"] if user.email.blank?
   		end
   	end
+  end
+
+  def large_image
+    "http://graph.facebook.com/#{uid}/picture?type=large"
+  end
+
+  def medium_image
+    "http://graph.facebook.com/#{uid}/picture?type=normal"
   end
 
   def admin?
