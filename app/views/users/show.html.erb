@@ -1,41 +1,62 @@
 <div class="row">
 	<div class="col-sm-8">
-		<h1><%= @user.name %></h1>
+	  <div class="profile-top">
+			<h1><%= @user.name %></h1>
 
-		<% if can? :edit, @user %>
-		  <p><%= link_to "Edit profile", edit_user_registration_path, class: "btn btn-warning btn-sm pull-right" %></p>
-		<% end %>
+			<% if can? :edit, @user %>
+			  <p><%= link_to "Edit profile", edit_user_registration_path, class: "btn btn-warning btn-sm pull-right" %></p>
+			<% end %>
 
-		<% if !@user.image.blank? %>
-			<%= image_tag "#{@user.image}" %>
-		<% else %>
-		  <%= image_tag "profile.png" %>
-		<% end %>
+			<% if !@user.image.blank? %>
+				<%= image_tag "#{@user.image}" %>
+			<% else %>
+			  <%= image_tag "profile.png" %>
+			<% end %>
+			<% if can? :edit, @user %>
+			  <p class="small"><%= link_to "Edit profile image", edit_user_registration_path, class: "profile-top-edit-image" %></p>
+			<% end %>
+		</div>
 	</div>
 </div>
 
 <div class="row">
 	<div class="col-sm-8">
-		<h4><%= @user.name %>'s Sahdfs</h4>
-		<% @posts.each do |post| %>
-			<%= render "posts/posts", post: post %>
-		<% end %>
-		<%= will_paginate @posts, param_name: 'posts_page', renderer: BootstrapPagination::Rails %>
-
-		<h4><%= @user.name %>'s Favorite Sahdfs</h4>
-		<% @favorites.each do |post| %>
-			<div class="post" id="post-<%= post.id %>">
-			  <div class="post-body"><%= post.body %></div>
-			  <div class="post-user"><%= link_to post.user.name, post.user %></div>
-			  <% if user_signed_in? && post.user != current_user %>
-			    <% unless current_user.favorite_posts.exists?(id: post.id) %>
-			      <%= link_to raw('<i class="fa fa-star favorite"></i>'), favorite_posts_path(post_id: post.id), method: :post, remote: true, class: "favorite-button" %>
-			    <% else %>
-			      <%= link_to raw('<i class="fa fa-star unfavorite"></i>'), favorite_post_path(post), method: :delete, remote: true, class: "favorite-button" %>
-			    <% end %>
+	  <div class="well">
+			<h4><%= @user.name %>'s Sahdfs</h4>
+			<% if @user.posts.empty? %>
+			  <p>No sad funnies yet!</p>
+			  <% if can? :edit, @user %>
+			    <%= link_to "Post Your First Sad Funny!", "#", class: "btn btn-success btn-large", data: { toggle: "modal", target: "#navbar_post" } %>
 			  <% end %>
-			</div>
-		<% end %>
-		<%= will_paginate @favorites, param_name: 'favorites_page', renderer: BootstrapPagination::Rails %>
+			<% end %>
+			<% @posts.each do |post| %>
+				<%= render "posts/posts", post: post %>
+			<% end %>
+			<%= will_paginate @posts, param_name: 'posts_page', renderer: BootstrapPagination::Rails %>
+		</div>
+
+    <div class="well">
+			<h4><%= @user.name %>'s Favorite Sahdfs</h4>
+			<% if @user.favorite_posts.empty? %>
+			  <p>No favorite sad funnies yet!</p>
+			  <% if can? :edit, @user %>
+			    <%= link_to "Go find some sad funnies!", new_path, class: "btn btn-info btn-large", data: { toggle: "modal", target: "#navbar_post" } %>
+			  <% end %>
+			<% end %>
+			<% @favorites.each do |post| %>
+				<div class="post" id="post-<%= post.id %>">
+				  <div class="post-body"><%= post.body %></div>
+				  <div class="post-user"><%= link_to post.user.name, post.user %></div>
+				  <% if user_signed_in? && post.user != current_user %>
+				    <% unless current_user.favorite_posts.exists?(id: post.id) %>
+				      <%= link_to raw('<i class="fa fa-star favorite"></i>'), favorite_posts_path(post_id: post.id), method: :post, remote: true, class: "favorite-button" %>
+				    <% else %>
+				      <%= link_to raw('<i class="fa fa-star unfavorite"></i>'), favorite_post_path(post), method: :delete, remote: true, class: "favorite-button" %>
+				    <% end %>
+				  <% end %>
+				</div>
+			<% end %>
+			<%= will_paginate @favorites, param_name: 'favorites_page', renderer: BootstrapPagination::Rails %>
+		</div>
 	</div>
 </div>

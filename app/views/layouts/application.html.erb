@@ -25,6 +25,10 @@
 	      <ul class="nav navbar-nav navbar-right">
 	        <li <%= "class=active" if current_page?(new_path) %>><%= link_to "New", new_path %></li>
 	      	<% if user_signed_in? %>
+	      	  <li><%= link_to "Submit Your Sad Funny", "#", data: { toggle: "modal", target: "#navbar_post" } %></li>
+			        <div class="modal fade" role="dialog" id="navbar_post">
+			          <%= render partial: "posts/nav_form" %>
+			        </div>
 	      	  <li class="dropdown">
 		          <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">Welcome back, <%= current_user.name %> <span class="caret"></span></a>
 		          <ul class="dropdown-menu" aria-labelledby="download">
@@ -38,15 +42,14 @@
 		            <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
 		          </ul>
 	        	</li>
-	        	
 	        <% else %>
+	          <li><%= link_to "Submit Your Sad Funny", "#", data: { toggle: "modal", target: "#navbar_post" } %></li>
+		        <div class="modal fade" role="dialog" id="navbar_post">
+		          <%= render partial: "posts/nav_form" %>
+		        </div>
 		        <li><%= link_to "Log In", new_user_session_path %></li>
 		        <li><%= link_to "Create Account", new_user_registration_path %></li>
 		      <% end %>
-		      <li><%= link_to "Submit Your Sad Funny", "#", data: { toggle: "modal", target: "#navbar_post" } %></li>
-	        <div class="modal fade" role="dialog" id="navbar_post">
-	          <%= render partial: "posts/nav_form" %>
-	        </div>
 	      </ul>
 
 	    </div>
