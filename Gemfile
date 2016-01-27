@@ -29,6 +29,8 @@ gem 'will_paginate-bootstrap'
 gem 'carrierwave'
 gem 'mini_magick'
 
+gem 'rack-cors'
+
 # Make Turbolinks and jQuery play nice
 gem 'jquery-turbolinks'
 # PNotify
