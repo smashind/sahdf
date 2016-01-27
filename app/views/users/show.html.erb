@@ -45,7 +45,7 @@
 			<% if @user.favorite_posts.empty? %>
 			  <p>No favorite sad funnies yet!</p>
 			  <% if can? :edit, @user %>
-			    <%= link_to "Go find some sad funnies!", new_path, class: "btn btn-info btn-large", data: { toggle: "modal", target: "#navbar_post" } %>
+			    <%= link_to "Go find some sad funnies!", new_path, class: "btn btn-info btn-large" %>
 			  <% end %>
 			<% end %>
 			<% @favorites.each do |post| %>

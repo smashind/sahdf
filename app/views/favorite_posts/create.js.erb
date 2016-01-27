@@ -1,5 +1,5 @@
 PNotify.removeAll();
-$("#post-<%= params[:post_id] %>").find("i").removeClass("favorite").addClass("unfavorite");
+$("#post-<%= params[:post_id] %>").find("i.fa.fa-star").removeClass("favorite").addClass("unfavorite");
 $(function(){
 	new PNotify({
 	    title: 'Favorited!',
