@@ -23,15 +23,15 @@ module PostsHelper
 				end +
 				content_tag(:div, class: "pull-left") do
 					link_to(raw('<i class="fa fa-twitter"></i>'), "https://twitter.com/intent/tweet?text=#{post.body} - via @sahdf")
-				end #+
-				# content_tag(:div, "", class: "fb-like pull-left", 
-				# 	data: { 
-	   #              href: "#{request.original_url}/posts/#{post.id}", 
-	   #              action: "like", 
-	   #              show_faces: "false", 
-	   #              share: "false", 
-	   #              layout: "button_count"
-	   #            } )
+				end +
+				content_tag(:div, "", class: "fb-like pull-left", 
+					data: { 
+	                href: "#{request.original_url}/posts/#{post.id}", 
+	                action: "like", 
+	                show_faces: "false", 
+	                share: "false", 
+	                layout: "button_count"
+	              } )
 			  end
 		end
 		# display = %{
