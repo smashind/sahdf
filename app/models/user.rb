@@ -29,11 +29,11 @@ class User < ActiveRecord::Base
   end
 
   def large_image
-    "http://graph.facebook.com/#{uid}/picture?type=large"
+    "https://graph.facebook.com/#{uid}/picture?type=large"
   end
 
   def medium_image
-    "http://graph.facebook.com/#{uid}/picture?type=normal"
+    "https://graph.facebook.com/#{uid}/picture?type=normal"
   end
 
   def admin?
