@@ -29,13 +29,26 @@
 	  color: #E08E0B;
 	}
 }
-.post-body {
+a.post-body {
+  color: #333;
+  cursor: pointer;
+  display: block;
   font-size: 16px;
   padding-bottom: 10px;
+  &:hover {
+    color: #555;
+    text-decoration: none;
+  }
 }
 .post-user {
+  color: #777;
 	font-size: 14px;
 	float: left;
+}
+.user-profile-link {
+	color: #777;
+	text-decoration: underline;
+	&:hover { color: #999; }
 }
 .form-errors {
 	color: red;
