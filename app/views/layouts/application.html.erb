@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SAHDF</title>
+  <title>SAHDFunny: <%= content_for?(:title) ? content_for(:title) : "Stay at Home Dad Funny Stories" %></title>
+  <meta name="description" content="<%= content_for?(:description) ? content_for(:description) : "Real stay at home dad funny stories. Check out the sad, funny stories and post your own!" %>" />
+  <meta name="keywords" content="stay at home dad funny,funny dad stories,stay at home dads" />
   <%= render partial: "layouts/meta" %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>

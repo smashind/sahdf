@@ -1,3 +1,6 @@
+<% provide :title, "Stay at Home Dad Funny ##{@post.id}" %>
+<% provide :description, @post.body %>
+
 <div class="row">
   <div class="col-sm-8">
     <%= post_style(@post, current_user || User.new) %>
