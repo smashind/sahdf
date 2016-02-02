@@ -39,9 +39,9 @@ gem 'jquery-turbolinks'
 gem 'pnotify-rails'
 
 # Admin area
-gem "administrate", "~> 0.1.2"
+gem "administrate", "~> 0.1.3"
 # Sprockets rails for Administrate error on Heroku
-gem 'sprockets-rails', '2.3.3'
+gem 'sprockets-rails'
 
 # Test Suite
 group :test do 
