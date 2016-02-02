@@ -11,15 +11,14 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
+//= require jquery.remotipart
 //= require bootstrap-sprockets
-//= require pnotify/pnotify.core
+//= require pnotify
 //= require_tree .
 
 $(document).on("page:load", function () {
-	$(".ui-pnotify").hide();
+	$(".ui-pnotify").remove();
 });
 
 /* Ensures modal windows appear on top */
@@ -49,3 +48,18 @@ $(document).on("page:change", function () {
 	  $("html").css("margin-right", "-16px");
 	});
 });
+
+// $( document ).ajaxComplete(function( event, xhr, settings ) {
+//   if ( settings.url === "/posts" ) {
+//     alert( "Triggered ajaxComplete handler. The result is " +
+//       xhr.responseText );
+//     try {
+//       FB.XFBML.parse();
+//     } catch (ex) { }
+//   }
+// });
+// $(document).ajaxComplete(function(){
+//   try{
+//     FB.XFBML.parse(); 
+//   }catch(ex){}
+// });

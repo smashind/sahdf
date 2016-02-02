@@ -26,7 +26,7 @@ class PostsController < ApplicationController
 	    end
 	  else
 	  	respond_to do |format|
-	    	format.html { render :new, alert: "There was a problem." }
+	    	format.html { redirect_to :root, alert: "There was a problem." }
 	    	if params[:submit_post_button_form]
 	    		format.js { render action: "form_error" }
 	    	else
@@ -39,6 +39,6 @@ class PostsController < ApplicationController
 	private
 
 	  def post_params
-	  	params.require(:post).permit(:body, :user_id)
+	  	params.require(:post).permit(:body, :user_id, :picture)
 	  end
 end

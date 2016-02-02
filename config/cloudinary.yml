@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: sahdfunny
+  api_key: '818311721895283'
+  api_secret: FpMfKsnWaISHbQNib1Nfh_EGqOA
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: sahdfunny
+  api_key: '818311721895283'
+  api_secret: FpMfKsnWaISHbQNib1Nfh_EGqOA
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: sahdfunny
+  api_key: '818311721895283'
+  api_secret: FpMfKsnWaISHbQNib1Nfh_EGqOA
+  enhance_image_tag: true
+  static_image_support: false

@@ -51,6 +51,37 @@ footer {
   background-color: #D8E9FD;
 }
 
-.navbar-brand > img {
-  margin-top: -15px;
+.navbar-brand {
+  width: 200px;
+  margin-left: 0 !important;
+  background-image: url("http://res.cloudinary.com/sahdfunny/image/upload/v1454111999/sahd-funny-logo_mabgli.png");
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+    background-image: url("http://res.cloudinary.com/sahdfunny/image/upload/v1454374314/sahdfunny-logo@2x.png");
+    background-position-y: 12px;
+    background-repeat: no-repeat;
+    background-size: 198px;
+  }
+  @media (max-width: 767px) {
+    margin-left: 15px !important;
+  }
+}
+
+.ui-pnotify-sticker {
+  display: none;
+}
+
+h1.home {
+  margin-top: -10px;
+  @media (max-width: 500px) {
+    font-size: 30px;
+  }
+}
+
+.new-post-home {
+  @media (min-width: 992px) {
+    margin-top: 10px;
+  }
+  @media (max-width: 991px) {
+    margin-bottom: 10px;
+  }
 }

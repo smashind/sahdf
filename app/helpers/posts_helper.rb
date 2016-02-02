@@ -3,6 +3,9 @@ module PostsHelper
 	def post_style(post, current_user)
 		content_tag(:div, id: "post-#{post.id}", class: "post") do
 			content_tag(:a, "#{post.body}", href: post_path(post), class: "post-body") + 
+			if post.picture?
+			  image_tag(post.picture_url, :alt => post.body, class: "post-picture")
+			end + 
 			content_tag(:div, class: "post-user") do
 				if post.user
 					content_tag(:div, link_to(post.user.name, post.user, class: "user-profile-link"))

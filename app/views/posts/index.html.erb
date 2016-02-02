@@ -1,17 +1,14 @@
-<h1>SAHDF</h1>
-
-<%= link_to "Post a sad funny", "#", class: "btn btn-success show-post-button", id: "show-post-form" %>
-
-<div class="row">
-	<div class="col-sm-8">
-    <div id="post-form">
-	    <%= render partial: "form" %>
-	  </div>
-	</div>
-</div>
-
 <div class="row">
   <div class="col-sm-8">
+    <div class="row">
+	    <div class="col-md-8 col-sm-12">
+		    <h1 class="home">Stay at Home Dad Funny</h1>
+		    <p>Funny stories from stay at home dads.</p>
+		  </div>
+		  <div class="col-md-4 col-sm-12">
+		    <%= link_to "Submit Your Sad Funny", "#", data: { toggle: "modal", target: "#navbar_post" }, class: "btn btn-success new-post-home" %>
+		  </div>
+    </div>
     <div id="posts">
 			<% @posts.each do |post| %>
 

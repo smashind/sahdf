@@ -7,14 +7,17 @@
             <fieldset>
               <div class="form-group">
                 <div class="col-sm-12">
-                <%= f.text_area :body, class: "form-control", placeholder: "Your sad, funny story.", rows: "4", id: "form_post_body" %>
+                <%= f.text_area :body, class: "form-control", placeholder: "Your sad, funny story.", rows: "4", id: "form_post_body", required: true %>
                 <span class="help-block"></span>
                 </div>
               </div>
 
-              <% unless user_signed_in? %>
-                <%= f.hidden_field :user_id, value: 1 %>
-              <% end %>
+              <div class="form-group">
+                <div class="col-sm-12">
+                <%= f.file_field :picture %>
+                <span class="help-block"></span>
+                </div>
+              </div>
 
               <div class="form-group">
                 <div class="col-sm-12">
