@@ -4,6 +4,9 @@ class Ability
   def initialize(user)
     user ||= User.new
     if user.admin?
+      can :read, :all
+      can :access, :rails_admin
+      can :dashboard
       can :manage, :all
     else
       # Allow users to manage their own profiles and posts only
