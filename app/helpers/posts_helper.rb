@@ -6,6 +6,12 @@ module PostsHelper
 			if post.picture?
 			  image_tag(post.picture_url, :alt => post.body, class: "post-picture")
 			end + 
+			content_tag(:div, " ", class: "divider-line") +
+			content_tag(:div, "", class: "votes") do
+				link_to("This is Sad (#{post.sad_votes})", post_sad_vote_path(post.id), class: "sad-vote #{post.id}", method: :patch, remote: true)  +
+				content_tag(:span, " | ") +
+				link_to("This is Funny (#{post.funny_votes})", post_funny_vote_path(post.id), class: "funny-vote #{post.id}", method: :patch, remote: true)
+			end +
 			content_tag(:div, class: "post-user") do
 				if post.user
 					content_tag(:div, link_to(post.user.name, post.user, class: "user-profile-link"))
@@ -37,7 +43,7 @@ module PostsHelper
 	                layout: "button_count"
 	              } )
 			end +
-			content_tag(:div, "", class: "clearfix")
+			content_tag(:div, "", class: "clearfix")			
 		end
 	end
 

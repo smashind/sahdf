@@ -49,17 +49,8 @@ $(document).on("page:change", function () {
 	});
 });
 
-// $( document ).ajaxComplete(function( event, xhr, settings ) {
-//   if ( settings.url === "/posts" ) {
-//     alert( "Triggered ajaxComplete handler. The result is " +
-//       xhr.responseText );
-//     try {
-//       FB.XFBML.parse();
-//     } catch (ex) { }
-//   }
-// });
-// $(document).ajaxComplete(function(){
-//   try{
-//     FB.XFBML.parse(); 
-//   }catch(ex){}
-// });
+$(document).ready(function() {
+  for (var i = 0; i < localStorage.length; i++){
+    $("#" + localStorage.key(i).split(" ")[0]).find("." + localStorage.getItem(localStorage.key(i))).contents().unwrap();
+  }
+});

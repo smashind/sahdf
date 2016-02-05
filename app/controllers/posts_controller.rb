@@ -36,6 +36,24 @@ class PostsController < ApplicationController
 	  end 
 	end
 
+	def sad_vote
+		@post = Post.find(params[:post_id])
+		@post.increment!(:sad_votes, 1)
+		respond_to do |format|
+			format.html { redirect_to :back, notice: "Voted sad!" }
+			format.js { render action: "sad-voted" }
+		end
+	end
+
+	def funny_vote
+		@post = Post.find(params[:post_id])
+		@post.increment!(:funny_votes, 1)
+		respond_to do |format|
+			format.html { redirect_to :back, notice: "Voted funny!" }
+			format.js { render action: "funny-voted" }
+		end
+	end
+
 	private
 
 	  def post_params

@@ -6,7 +6,10 @@ Rails.application.routes.draw do
   get 'contact', to: 'pages#contact', as: :contact
   get 'new', to: 'pages#new', as: :new
   resources :users
-  resources :posts
+  resources :posts do
+    patch 'sad_vote', to: 'posts#sad_vote'
+    patch 'funny_vote', to: 'posts#funny_vote'
+  end
   resources :favorite_posts, only: [:create, :destroy]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

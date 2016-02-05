@@ -1,0 +1,8 @@
+// Increases vote number
+var vote = parseInt($("#post-<%= params[:post_id] %>").find(".sad-vote").text().match(/\d+/));
+increasedVote = vote + 1;
+var newVote = $("#post-<%= params[:post_id] %>").find(".sad-vote").text().replace(vote, increasedVote);
+$("#post-<%= params[:post_id] %>").find(".sad-vote").text(newVote);
+// Set localStorage after vote
+localStorage.setItem("post-<%= params[:post_id] %> sad", "sad-vote");
+$("#post-<%= params[:post_id] %>").find('.sad-vote').contents().unwrap();

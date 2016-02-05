@@ -7,3 +7,7 @@ $(document).on "page:change", ->
   $('#submit_post_button_form').click -> 
     $('span').text('')
     $('.form-group').removeClass('has-error')
+
+$(document).ready ->
+  $('.sad-vote').click ->
+    postId = $(this).attr('class').match(/\d+/)

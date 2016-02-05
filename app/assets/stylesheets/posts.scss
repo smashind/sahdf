@@ -63,3 +63,19 @@ a.post-body {
   background-color: #D8E9FD;
 	width: 300px;
 }
+.divider-line {
+  background-color: #d1d1d1;
+	height: 1px;
+	margin: 10px 0;
+}
+.votes {
+  color: #595555;
+  font-size: 14px;
+}
+.votes > span {
+	color: #333;
+}
+.votes > a {
+	color: #2780E3;
+	cursor: pointer;
+}
