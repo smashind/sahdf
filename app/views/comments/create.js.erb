@@ -1,0 +1,13 @@
+$('#comment_body').val("");
+PNotify.removeAll();
+$(function(){
+	new PNotify({
+	    title: 'Your comment was posted!',
+	    type: 'success',
+	    addclass: "alert-position",
+	    delay: 3000
+	});
+});
+$('#comments').append("<%= j render @comment %>");
+$('.comments').text("<%= pluralize(@post.comments_count + 1, 'comment') %>");
+$('h3.comments-header').text("Comments (<%= @post.comments_count + 1 %>)");

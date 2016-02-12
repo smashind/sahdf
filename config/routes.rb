@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :posts do
     patch 'sad_vote', to: 'posts#sad_vote'
     patch 'funny_vote', to: 'posts#funny_vote'
+    resources :comments, only: [:create, :destroy]
   end
   resources :favorite_posts, only: [:create, :destroy]
   # The priority is based upon order of creation: first created -> highest priority.

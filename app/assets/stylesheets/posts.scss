@@ -43,10 +43,12 @@ a.post-body {
 .post-picture {
 	display: block;
 }
-.post-user {
+.post-user, .posted-by, .posted-when, .comments {
   color: #777;
 	font-size: 14px;
 	float: left;
+	font-size: 14px;
+	padding-right: 5px;
 }
 .user-profile-link {
 	color: #777;

@@ -1,0 +1,20 @@
+<%= form_for [@post, @comment], remote: true do |f| %>
+  <div class="form-horizontal">
+    <fieldset>
+      <div class="form-group">
+        <div class="col-sm-12">
+        <%= f.text_area :body, class: "form-control", placeholder: "Your sad, funny comment.", rows: "4", required: true %>
+        <span class="help-block"></span>
+        </div>
+      </div>
+
+      <%= f.hidden_field :post_id, value: @post.id %>
+
+      <div class="form-group">
+        <div class="col-sm-12">
+          <%= f.submit "Post it", class: "btn btn-primary", data: { disable_with: "Posting..." }, id: 'submit-comment-button' %>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+<% end %>

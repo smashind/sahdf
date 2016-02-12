@@ -12,6 +12,8 @@ module PostsHelper
 				content_tag(:span, " | ") +
 				link_to("This is Funny (#{post.funny_votes})", post_funny_vote_path(post.id), class: "funny-vote #{post.id}", method: :patch, remote: true)
 			end +
+			link_to("#{pluralize(post.comments_count, 'comment')}", post_path(post), class: "comments") +
+			content_tag(:div, "| Posted by", class: "posted-by") +
 			content_tag(:div, class: "post-user") do
 				if post.user
 					content_tag(:div, link_to(post.user.name, post.user, class: "user-profile-link"))
@@ -19,6 +21,7 @@ module PostsHelper
 					content_tag(:div, "Anonymous")
 				end
 			end + 
+			content_tag(:div, "#{time_ago_in_words(post.created_at)} ago", class: "posted-when") +
 			content_tag(:div, class: "post-sharing pull-right") do
 				content_tag(:div, class: "pull-left") do
 					if user_signed_in? && post.user != current_user

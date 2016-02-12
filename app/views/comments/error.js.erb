@@ -1,0 +1,4 @@
+<% @comment.errors.each do |key, value| %>
+  $("#comment_<%= key %>").closest('.form-group').addClass('has-error');
+  $("#comment_<%= key %>").closest('.form-group').find('span').append('<%= key.capitalize %> <%= value %>. ');
+<% end %>

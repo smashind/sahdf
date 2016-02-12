@@ -5,9 +5,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
 	validates_presence_of [:name, :email]
 
-  has_many :posts
+  has_many :posts, dependent: :destroy
   has_many :favorites
   has_many :favorite_posts, through: :favorites, source: :favorited, source_type: 'Post'
+  has_many :comments, dependent: :destroy
 
 	mount_uploader :image, ImageUploader
 

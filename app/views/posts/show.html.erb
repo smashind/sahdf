@@ -6,3 +6,25 @@
     <%= post_style(@post, current_user || User.new) %>
   </div>
 </div>
+
+<div class="row">
+  <div class="col-sm-8">
+    <h3 class="comments-header">Comments (<%= @post.comments_count %>)</h3>
+    <div id="comments">
+	    <% @comments.each do |comment| %>
+	      <%= comment_style(comment) %>
+	    <% end %>
+	  </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-8">
+    <h3>Post a Comment</h3>
+    <% if user_signed_in? %>
+      <%= render partial: "comments/form" %>
+    <% else %>
+      You need to be logged in to comment. Don't have an account? Create one!
+    <% end %> 
+  </div>
+</div>
