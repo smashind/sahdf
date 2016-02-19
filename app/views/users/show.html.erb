@@ -12,7 +12,7 @@
 				<% elsif @user.provider == "facebook" %>
 	        <%= image_tag "#{@user.medium_image}" %>
 				<% else %>
-				  <%= image_tag "profile.png" %>
+				  <%= image_tag "http://res.cloudinary.com/sahdfunny/image/upload/v1455854015/no-image_lxk2fs.png" %>
 				<% end %>
 			</div>
 			<% if can? :edit, @user %>
