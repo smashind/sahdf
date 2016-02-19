@@ -24,7 +24,7 @@
     <% if user_signed_in? %>
       <%= render partial: "comments/form" %>
     <% else %>
-      You need to be logged in to comment. Don't have an account? Create one!
+      You need to be <%= link_to "logged in", new_user_session_path %> to comment. Don't have an account? <%= link_to "Create one here", new_user_registration_path %>!
     <% end %> 
   </div>
 </div>

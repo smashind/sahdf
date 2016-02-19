@@ -26,4 +26,10 @@ FactoryGirl.define do
 		favorited factory: :post
 		association :user
 	end
+
+	factory :comment do
+		body "This is a funny sahd funny."
+		post
+		user
+	end
 end
