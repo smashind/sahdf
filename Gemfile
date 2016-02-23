@@ -41,6 +41,9 @@ gem 'pnotify-rails'
 # Admin area
 gem 'rails_admin'
 
+# Populate db
+gem 'faker'
+
 gem 'sprockets-rails'
 
 # Test Suite
