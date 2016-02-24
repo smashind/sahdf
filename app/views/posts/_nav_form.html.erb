@@ -19,6 +19,15 @@
                 </div>
               </div>
 
+              <% if user_signed_in? && current_user.admin? %>
+                <div class="form-group">
+                  <div class="col-sm-12">
+                  <%= f.text_field :user_id, required: true, placeholder: "User id" %>
+                  <span class="help-block"></span>
+                  </div>
+                </div>
+              <% end %>
+
               <div class="form-group">
                 <div class="col-sm-12">
                   <%= f.submit "Post it", class: "btn btn-primary", data: { disable_with: "Posting..." }, id: 'submit_post_button_form', name: 'submit_post_button_form' %>  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

@@ -36,4 +36,30 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
+
+  config.model Post do
+    edit do
+      field :user_id do
+        label "User"
+      end
+      field :body do
+        label "Body"
+      end
+      field :featured do
+        label "Featured"
+      end
+      field :picture do
+        label "Picture"
+      end
+      field "sad_votes" do
+        label "Sad votes"
+      end
+      field "funny_votes" do
+        label "Funny votes"
+      end
+      field :created_at do
+        label "Posted at"
+      end
+    end
+  end
 end

@@ -15,7 +15,7 @@ class PostsController < ApplicationController
   end
 
 	def create
-		if user_signed_in?
+		if user_signed_in? && !current_user.admin?
       @post = current_user.posts.new(post_params)
     else
     	@post = Post.new(post_params)
