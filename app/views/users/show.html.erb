@@ -56,4 +56,8 @@
 			<%= will_paginate @favorites, param_name: 'favorites_page', renderer: BootstrapPagination::Rails %>
 		</div>
 	</div>
+		<div class="col-sm-4">
+    <%= render partial: "layouts/fb_sidebar" %>
+    <%= render partial: "layouts/twitter_sidebar" %>
+	</div>
 </div>
