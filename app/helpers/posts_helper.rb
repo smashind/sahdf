@@ -21,7 +21,7 @@ module PostsHelper
 					content_tag(:div, "Anonymous")
 				end
 			end + 
-			content_tag(:div, "#{time_ago_in_words(post.created_at)} ago", class: "posted-when") +
+			# content_tag(:div, "#{time_ago_in_words(post.created_at)} ago", class: "posted-when") +
 			content_tag(:div, class: "post-sharing pull-right") do
 				content_tag(:div, class: "pull-left") do
 					if user_signed_in? && post.user != current_user

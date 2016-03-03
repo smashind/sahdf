@@ -10,4 +10,8 @@
 		</div>
 		<%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
 	</div>
+	<div class="col-sm-4">
+    <%= render partial: "layouts/fb_sidebar" %>
+    <%= render partial: "layouts/twitter_sidebar" %>
+	</div>
 </div>
