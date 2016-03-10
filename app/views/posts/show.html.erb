@@ -2,29 +2,35 @@
 <% provide :description, @post.body %>
 
 <div class="row">
-  <div class="col-sm-8">
-    <%= post_style(@post, current_user || User.new) %>
-  </div>
-</div>
+  <div class="col-lg-8">
+    <div class="col-sm-12">
+      <%= post_style(@post, current_user || User.new) %>
+    </div>
 
-<div class="row">
-  <div class="col-sm-8">
-    <h3 class="comments-header">Comments (<%= @post.comments_count %>)</h3>
-    <div id="comments">
-	    <% @comments.each do |comment| %>
-	      <%= comment_style(comment) %>
-	    <% end %>
-	  </div>
-  </div>
-</div>
+    <div class="col-sm-12">
+      <h3 class="comments-header">Comments (<%= @post.comments_count %>)</h3>
+      <div id="comments">
+  	    <% @comments.each do |comment| %>
+  	      <%= comment_style(comment) %>
+  	    <% end %>
+  	  </div>
+    </div>
 
-<div class="row">
-  <div class="col-sm-8">
-    <h3>Post a Comment</h3>
-    <% if user_signed_in? %>
-      <%= render partial: "comments/form" %>
-    <% else %>
-      You need to be <%= link_to "logged in", new_user_session_path %> to comment. Don't have an account? <%= link_to "Create one here", new_user_registration_path %>!
-    <% end %> 
+    <div class="col-sm-12">
+      <h3>Post a Comment</h3>
+      <% if user_signed_in? %>
+        <%= render partial: "comments/form" %>
+      <% else %>
+        You need to be <%= link_to "logged in", new_user_session_path %> to comment. Don't have an account? <%= link_to "Create one here", new_user_registration_path %>!
+      <% end %> 
+    </div>
+  </div>
+
+  <div class="col-lg-4">
+    <div class="social-ads">
+      <%= render partial: "layouts/fb_sidebar" %>
+      <%= render partial: "layouts/twitter_sidebar" %>
+      <%= render partial: "layouts/ads" %>
+    </div>
   </div>
 </div>
